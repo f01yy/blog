@@ -7,7 +7,12 @@
         <post-form @add-post="addNewPost" />
       </popup-window>
 
-      <posts-list :posts="posts" @delete-post="deletePost" />
+      <posts-list
+        v-if="posts.length"
+        :posts="posts"
+        @delete-post="deletePost"
+      />
+      <div v-else class="no-posts-warn">Постов нет. Создайте первый!</div>
     </div>
   </div>
 </template>
@@ -43,11 +48,11 @@ export default {
       this.popupVisible = true;
     },
 
-    addNewPost(post) {
+    addNewPost({ title, content }) {
       this.posts.push({
         id: Date.now(),
-        title: post.title,
-        content: post.content,
+        title,
+        content,
       });
 
       this.popupVisible = false;
@@ -68,6 +73,10 @@ export default {
 }
 .App {
   padding: 10px;
+}
+.no-posts-warn {
+  margin-top: 20px;
+  font-size: 26px;
 }
 .popup__button {
   background: blueviolet;
