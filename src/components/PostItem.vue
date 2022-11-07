@@ -1,7 +1,7 @@
 <template>
   <div class="posts__item">
     <h3>{{ post.title }}</h3>
-    <p>{{ post.content }}</p>
+    <p>{{ post.body }}</p>
     <button @click="handleClick(post.id)" class="posts__delete">Delete</button>
   </div>
 </template>
@@ -42,7 +42,7 @@ export default {
 }
 .posts__delete {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   right: 10px;
   background: rgb(197, 0, 0);
   color: rgb(255, 255, 255);

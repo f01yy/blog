@@ -18,10 +18,12 @@
 </template>
 
 <script>
-import PostsList from './components/PostsList.vue';
-import PostForm from './components/PostForm.vue';
+import { fetchPosts } from './api.js';
 
 import PopupWindow from './components/PopupWindow.vue';
+
+import PostsList from './components/PostsList.vue';
+import PostForm from './components/PostForm.vue';
 
 export default {
   name: 'App',
@@ -34,13 +36,14 @@ export default {
 
   data() {
     return {
-      posts: [
-        { id: 1, title: 'Title 1', content: 'Content 1' },
-        { id: 2, title: 'Title 2', content: 'Content 2' },
-      ],
+      posts: [],
 
       popupVisible: false,
     };
+  },
+
+  created() {
+    fetchPosts().then((posts) => (this.posts = posts));
   },
 
   methods: {
@@ -48,11 +51,11 @@ export default {
       this.popupVisible = true;
     },
 
-    addNewPost({ title, content }) {
+    addNewPost({ title, body }) {
       this.posts.push({
         id: Date.now(),
         title,
-        content,
+        body,
       });
 
       this.popupVisible = false;
