@@ -30,9 +30,10 @@ export default {
 <style scoped>
 .posts__item {
   word-wrap: break-word;
-  background-color: blueviolet;
-  color: aliceblue;
+  background-color: rgb(157, 209, 255);
+  color: rgb(0, 34, 145);
   padding: 0 10px;
+  border: 2px solid rgb(0, 5, 100);
   border-radius: 12px;
   position: relative;
 }
