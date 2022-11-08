@@ -1,5 +1,7 @@
 # blog
 
+Vue + Vuex 
+
 ## Project setup
 ```
 npm install
