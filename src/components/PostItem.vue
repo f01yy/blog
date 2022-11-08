@@ -1,8 +1,11 @@
 <template>
   <div class="posts__item">
-    <h3>{{ post.title }}</h3>
+    <h3>
+      <span>{{ postIndex + 1 }}</span>
+      . {{ post.title }}
+    </h3>
     <p>{{ post.body }}</p>
-    <button @click="handleClick(post.id)" class="posts__delete">Delete</button>
+    <button @click="handleClick(post.id)" class="posts__delete">Удалить</button>
   </div>
 </template>
 
@@ -11,6 +14,11 @@ export default {
   props: {
     post: {
       type: Object,
+      required: true,
+    },
+
+    postIndex: {
+      type: Number,
       required: true,
     },
   },

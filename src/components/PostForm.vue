@@ -5,16 +5,16 @@
         v-model="postTitle"
         class="post-form__title"
         type="text"
-        placeholder="Title"
+        placeholder="Заголовок"
       />
       <textarea
-        v-model="postContent"
+        v-model="postBody"
         class="post-form__content"
         type="text"
-        placeholder="Content"
+        placeholder="Описание"
       />
       <button @click="handleClick" class="post-form__button">
-        Add new post
+        Добавить пост
       </button>
     </form>
   </section>
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       postTitle: '',
-      postContent: '',
+      postBody: '',
     };
   },
 
@@ -37,7 +37,7 @@ export default {
     handleClick() {
       this.$emit('add-post', {
         title: this.postTitle,
-        content: this.postContent,
+        body: this.postBody,
       });
     },
   },
@@ -55,6 +55,14 @@ export default {
 .post-form__content,
 .post-form__title {
   padding: 10px;
+  border: 2px solid blueviolet;
+  border-radius: 12px;
+  color: blueviolet;
+  outline: none;
+}
+.post-form__content::placeholder,
+.post-form__title::placeholder {
+  color: blueviolet;
 }
 .post-form__button {
   background: aliceblue;

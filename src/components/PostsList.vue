@@ -2,9 +2,10 @@
   <section class="posts">
     <post-item
       @delete-post="handleDeletePost"
-      v-for="post in posts"
+      v-for="(post, idx) in posts"
       :key="post.id"
       :post="post"
+      :postIndex="idx"
     />
   </section>
 </template>
